@@ -1,0 +1,33 @@
+#ifndef DIMENSION_MANAGER_H
+#define DIMENSION_MANAGER_H
+
+enum DimensionType {
+    OVERWORLD = 0,
+    NETHER = 1,
+    THE_END = 2
+};
+
+class DimensionManager {
+public:
+    static DimensionType currentDimension;
+
+    static void changeDimension(DimensionType newDimension) {
+        if (currentDimension == newDimension) return;
+
+        currentDimension = newDimension;
+
+        switch (newDimension) {
+            case NETHER:
+                break;
+            case THE_END:
+                break;
+            case OVERWORLD:
+                break;
+        }
+    }
+};
+
+DimensionType DimensionManager::currentDimension = OVERWORLD;
+
+#endif
+
