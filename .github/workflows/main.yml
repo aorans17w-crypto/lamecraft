@@ -1,0 +1,25 @@
+name: Build PSP Game
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: pspdev/pspdev:latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Compile Project
+      run: |
+        make
+
+    - name: Upload EBOOT File
+      uses: actions/upload-artifact@v3
+      with:
+        name: Minecraft-PSP-EBOOT
+        path: "**/EBOOT.PBP"
