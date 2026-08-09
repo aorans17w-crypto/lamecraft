@@ -12,14 +12,15 @@ jobs:
 
     steps:
     - name: Checkout Code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Compile Project
       run: |
+        cd src || true
         make
 
     - name: Upload EBOOT File
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Minecraft-PSP-EBOOT
         path: "**/EBOOT.PBP"
