@@ -1,0 +1,20 @@
+#include "DimensionManager.h"
+
+#define BLOCK_NETHER_PORTAL 90
+#define BLOCK_END_PORTAL    119
+
+void CheckPortalCollision(int currentBlockID) {
+    if (currentBlockID == BLOCK_NETHER_PORTAL) {
+        if (DimensionManager::currentDimension == OVERWORLD) {
+            DimensionManager::changeDimension(NETHER);
+        } else if (DimensionManager::currentDimension == NETHER) {
+            DimensionManager::changeDimension(OVERWORLD);
+        }
+    } 
+    else if (currentBlockID == BLOCK_END_PORTAL) {
+        if (DimensionManager::currentDimension == OVERWORLD) {
+            DimensionManager::changeDimension(THE_END);
+        }
+    }
+}
+
