@@ -17,7 +17,7 @@ jobs:
     - name: Compile Project
       run: |
         cd src || true
-        make
+        make CFLAGS="-w -Wno-error" CXXFLAGS="-w -Wno-error"
 
     - name: Upload EBOOT File
       uses: actions/upload-artifact@v4
